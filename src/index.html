@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mikalto</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav
+      class="flex w-full justify-between p-3 xl:px-5 items-center text-[#0a205c] relative max-width"
+    >
+      <div
+        class="logo xl:w-[16%] w-[55%] flex items-center text-center flex-col"
+      >
+        <h2 class="text-5xl font-light"><a href="#">MIKALTO</a></h2>
+        <p>Hotels & Resorts</p>
+      </div>
+      <i class="fa fas fa-light fa-bars xl:hidden menu"></i>
+      <div
+        class="list hidden xl:flex xl:w-[40%] xl:static absolute top-full bg-white w-full text-center left-0 py-2"
+      >
+        <ul
+          class="flex w-full justify-between items-center flex-col xl:flex-row"
+        >
+          <li
+            class="py-2 my-3 px-3 hover:bg-[#0a205c] hover:text-white rounded-lg"
+          >
+            <a href="#">Home</a>
+          </li>
+          <li
+            class="py-2 my-3 px-3 hover:bg-[#0a205c] hover:text-white rounded-lg"
+          >
+            <a href="#">Our Rooms</a>
+          </li>
+          <li
+            class="py-2 my-3 px-3 hover:bg-[#0a205c] hover:text-white rounded-lg"
+          >
+            <a href="#">Page</a>
+          </li>
+          <li
+            class="py-2 my-3 px-3 hover:bg-[#0a205c] hover:text-white rounded-lg"
+          >
+            <a href="#">Features</a>
+          </li>
+          <li
+            class="py-2 my-3 px-3 hover:bg-[#0a205c] hover:text-white rounded-lg"
+          >
+            <a href="#">Blog</a>
+          </li>
+          <li
+            class="py-2 my-3 px-3 hover:bg-[#0a205c] hover:text-white rounded-lg"
+          >
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="right w-[15%] hidden xl:flex justify-evenly items-center">
+        <!-- <select name="" id="">
+          <option value="En">EN</option>
+          <option value="Hi">HI</option>
+        </select> -->
+        <div id="google_translate_element" class=""></div>
+        <a href="#" class="cursor-pointer">
+          <i class="fas fa-regular fa-bag-shopping"></i>
+        </a>
+      </div>
+    </nav>
+
+    <!-- banner -->
+    <section
+      id="banner"
+      class="banner xl:h-[80vh] md:mx-10 2xl:mx-auto flex flex-col xl:flex-row items-center text-[#0a205c] text-light py-5 max-width"
+    >
+      <div class="left-text md:pl-10 pl-2 xl:w-1/2">
+        <h1 class="text-3xl xl:text-6xl text-white mb-10 font-light"></h1>
+        <p class="text-white"></p>
+        <div class="mt-5 flex justify-evenly md:justify-between md:w-1/2">
+          <button
+            class="hover:bg-white p-4 hover:text-black bg-transparent text-white flex justify-center items-center"
+          >
+            About Us
+            <i class="fas fa fa-thin fa-arrow-right ml-2"></i>
+          </button>
+          <button
+            class="hover:bg-white p-4 hover:text-black bg-transparent text-white flex justify-center items-center"
+          >
+            View Homestay
+            <i class="fas fa fa-thin fa-arrow-right ml-2"></i>
+          </button>
+        </div>
+      </div>
+      <div class="right-form xl:w-1/2">
+        <form
+          class="bg-white xl:w-[55%] md:p-10 p-2 m-2 flex flex-col mt-5 xl:mt-0"
+          name="form"
+        >
+          <div class="form-header">
+            <h4 class="text-3xl font-light">Search Room</h4>
+            <p>Get the latest on our COVID-19 response</p>
+          </div>
+          <div class="dates flex justify-between mt-4 w-full">
+            <div class="w-[45%]">
+              <div>
+                <i class="fa-regular fa-calendar"></i>
+                <label class="text-xl"
+                  >Checkin <span class="text-red-900 font-bold"> *</span></label
+                >
+              </div>
+              <input
+                type="date"
+                placeholder="Check in Date"
+                class="border-b-2 border-slate-200 mt-1 bg-transparent w-full outline-none"
+                required
+                name="checkin"
+              />
+            </div>
+            <div class="w-[45%]">
+              <div>
+                <i class="fa-regular fa-calendar"></i>
+                <label class="text-xl"
+                  >Checkout
+                  <span class="text-red-900 font-bold"> *</span></label
+                >
+              </div>
+              <input
+                type="date"
+                placeholder="Checkout Date"
+                class="border-b-2 border-slate-200 mt-1 bg-transparent w-full outline-none"
+                required
+                name="checkout"
+              />
+            </div>
+          </div>
+          <div class="w-full my-4">
+            <div>
+              <i class="far fa-light fa-user"></i>
+              <label>Adults</label>
+            </div>
+            <input
+              type="number"
+              class="border-b-2 border-slate-200 p-1 w-full outline-none"
+              required
+              name="adults"
+            />
+          </div>
+          <div>
+            <div>
+              <i class="fas fa-regular fa-child"></i>
+              <label>Children</label>
+            </div>
+            <input
+              type="number"
+              class="border-b-2 border-slate-200 p-1 w-full outline-none"
+              required
+              name="children"
+            />
+          </div>
+          <button
+            class="bg-[#0a205c] hover:bg-cyan-800 text-white py-3 mt-4 submitBtn"
+          >
+            Check availability
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- grid of pics -->
+    <section
+      class="xl:h-[70vh] flex items-center flex-col xl:flex-row justify-center px-10 py-10 max-width"
+    >
+      <div class="xl:w-1/2 xl:mr-16 flex flex-col xl:items-end">
+        <p class="xl:w-3/4">Welcome To</p>
+        <h2 class="text-3xl my-4 xl:w-3/4">
+          The Mikalto Luxury & Comfort Homestay
+        </h2>
+        <p class="leading-loose xl:w-3/4">
+          Welcome to our five-star hotel in Puerto de la Cruz's old town. A
+          marvellous combination of architecture, design and contemporary art.
+          32 rooms and 10 uniquely different suites ensure our guests' stay is
+          extra special.
+        </p>
+        <div class="my-3 xl:w-3/4">
+          <img src="./images/content/signature.png" alt="sign" class="w-1/2" />
+        </div>
+        <p class="xl:w-3/4">MELINDA AMANDA - HOTEL MANAGER</p>
+      </div>
+      <div class="relative xl:w-1/2 h-full flex mb-10 flex-col">
+        <div class="xl:absolute top-[10%] my-5">
+          <img src="./images/content/london.png" alt="london" class="w-full" />
+        </div>
+        <div class="xl:absolute top-[10%] left-[30%] mb-5">
+          <img src="./images/content/osaka.png" alt="osaka" class="w-full" />
+        </div>
+        <div class="xl:absolute top-[50%] left-[10%] mb-5">
+          <img
+            src="./images/content/rome.png"
+            alt="rome"
+            class="xl:w-[80%] w-full"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- slider -->
+    <section
+      class="carousel my-5 flex flex-col md:flex-row m-auto items-center justify-between blue-background text-white py-5 md:py-0 max-width"
+    >
+      <div class="swiper-text md:w-[35%] leading-loose py-5 xl:pl-24 pl-5">
+        <p class="subHeading"></p>
+        <h3 class="text-4xl heading"></h3>
+        <p class="rate"></p>
+        <p class="w-full description"></p>
+        <div class="w-[80%] flex justify-between my-5">
+          <div>
+            <h4>Bed:</h4>
+            <h4>Capacity:</h4>
+            <h4>Room Size:</h4>
+            <h4>View:</h4>
+          </div>
+          <div>
+            <p class="bed"></p>
+            <p class="capacity"></p>
+            <p class="roomSize"></p>
+            <p class="view"></p>
+          </div>
+        </div>
+        <button
+          class="p-2 border-2 border-white hover:bg-white hover:text-[#0a205c]"
+        >
+          View Detail
+        </button>
+      </div>
+
+      <div class="swiper mySwiper md:w-[50%] w-full">
+        <div class="swiper-wrapper w-full">
+          <div class="swiper-slide w-full">
+            <div class="img w-full">
+              <img src="" alt="room" class="w-full" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="img">
+              <img src="" alt="room" class="w-full" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="img">
+              <img src="" alt="room" class="w-full" />
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </section>
+
+    <!-- choose -->
+    <section
+      class="w-full flex flex-col items-center justify-center p-4 text-left max-width"
+    >
+      <h2 class="text-4xl mb-5 mr-auto xl:ml-36">Why choose our hotel?</h2>
+      <div class="flex w-[80%] flex-col xl:flex-row">
+        <div class="card flex mr-5 flex-col md:flex-row mb-4">
+          <div class="mr-4 text-2xl">
+            <i class="fal fa fa-light fa-bell-concierge"></i>
+          </div>
+          <div>
+            <h4 class="text-2xl mb-3">Unique cuisine</h4>
+            <p>
+              We use the best ingredients to make special and really tasty
+              dishes. Choose what you want to eat every day. You order at the
+              moment.
+            </p>
+          </div>
+        </div>
+        <div class="card flex mr-5 flex-col md:flex-row">
+          <div class="mr-4 text-2xl">
+            <i class="fa-solid fa-bicycle"></i>
+          </div>
+          <div>
+            <h4 class="text-2xl mb-3">Dedicated to wellness</h4>
+            <p>
+              Aman's approach to wellness is focused on personalisation, privacy
+              and seclusion. Local spa rituals with indigenous ingredients,
+              offer a profoundly therapeutic touch, and a gentle sense of
+              discovery.
+            </p>
+          </div>
+        </div>
+        <div class="card flex mr-5 flex-col md:flex-row">
+          <div class="mr-4 text-2xl">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div>
+            <h4 class="text-2xl mb-3">Perfect Location</h4>
+            <p>
+              The hotel is located near some of the most beautiful sandy
+              beaches. This is the hotel to book if you plan to spend a great
+              deal of time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- activities -->
+    <section class="w-full text-white my-5 max-width">
+      <div class="bg-blue-900 flex flex-col md:flex-row">
+        <div
+          class="md:w-1/2 py-2 flex flex-col justify-center md:pl-16 pl-10 items-start"
+        >
+          <p class="">Other activities</p>
+          <h3 class="my-2 text-2xl">Give yourself a smile- Smile & Wellness</h3>
+          <p class="my-8 w-[80%]">
+            Proin nec leo vel metus faucibus vehicula. Donec vulputate in magna
+            eget egestas. Aliquam ac facilisis ante, sit amet tincidunt ante.
+            Fusce dolor sapien, sodales at velit non, lobortis volutpat ante.
+            Integer porta molestie volutpat. Etiam tristique, sem vitae
+            tincidunt gravida, eros nulla dapibus lacus, ut dapibus diam dui vel
+            tortor.
+          </p>
+          <a href="#">
+            Explore More <i class="fas fa fa-thin fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="md:w-1/2">
+          <img
+            src="./images/content/ocean-travel-modern-nobody-infinity.jpg"
+            alt="ocean"
+            class="w-full"
+          />
+        </div>
+      </div>
+      <div class="bg-blue-900 flex flex-col-reverse md:flex-row">
+        <div class="md:w-1/2">
+          <img
+            src="./images/content/ocean-travel-modern-nobody-infinity.jpg"
+            alt="ocean"
+            class="w-full"
+          />
+        </div>
+        <div
+          class="md:w-1/2 flex flex-col justify-center md:pl-16 pl-10 items-start"
+        >
+          <p>RECONNECT WITH NATURE</p>
+          <h3 class="my-2 text-2xl">
+            Experience a truly unforgettable holiday
+          </h3>
+          <p class="my-8 w-[80%]">
+            The wilderness and authenticity of this tiny village nestled between
+            steep mountain cliffs and miles and miles of beautiful beaches drew
+            foreign visitors like a magnet.
+          </p>
+          <ul class="list-disc">
+            <li>Thermal water with ancient baths</li>
+            <li>Turkish bath</li>
+            <li>Turkish sauna</li>
+            <li>Relax and therapy massage Book your stay</li>
+          </ul>
+          <button
+            class="border-2 mt-5 p-2 px-4 mb-5 hover:bg-white hover:text-[#0a205c]"
+          >
+            Book Your Stay
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- article cards -->
+    <section
+      class="w-full flex flex-col items-center justify-center p-5 text-center max-width"
+    >
+      <div class="header mb-7">
+        <p>EXPERIENCE MATTERS</p>
+        <p class="text-3xl md:w-[56%] m-auto">
+          Escape from the World see the experience before you feel it. Discover
+          the luxury of Hotel Mikalto
+        </p>
+      </div>
+      <div
+        class="experience-cards w-full flex justify-evenly flex-col md:flex-row"
+      >
+        <div class="card md:w-[20%] md:text-start leading-loose text-center">
+          <div>
+            <img src="" alt="spa" class="w-full" />
+          </div>
+          <div class="mt-4">
+            <p class="heading"></p>
+            <p class="text-2xl subheading"></p>
+            <p class="my-4 content"></p>
+            <a href="#">
+              Discover More <i class="fas fa fa-thin fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="card md:w-[20%] md:text-start leading-loose text-center">
+          <div>
+            <img src="" alt="travel" class="w-full" />
+          </div>
+          <div class="mt-4">
+            <p class="heading"></p>
+            <p class="text-2xl subheading"></p>
+            <p class="my-4 content"></p>
+            <a href="#">
+              Discover More <i class="fas fa fa-thin fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="card md:w-[20%] md:text-start leading-loose text-center">
+          <div>
+            <img src="" alt="adventure in wild" class="w-full" />
+          </div>
+          <div class="mt-4">
+            <p class="heading"></p>
+            <p class="text-2xl subheading"></p>
+            <p class="my-4 content"></p>
+            <a href="#">
+              Discover More <i class="fas fa fa-thin fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="card md:w-[20%] md:text-start leading-loose text-center">
+          <div>
+            <img src="" alt="amenities" class="w-full" />
+          </div>
+          <div class="mt-4">
+            <p class="heading"></p>
+            <p class="text-2xl subheading"></p>
+            <p class="my-4 content"></p>
+            <a href="#">
+              Discover More <i class="fas fa fa-thin fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a
+        href="#"
+        class="border-2 border-[#0a205c] p-3 hover:bg-[#0a205c] hover:text-white"
+        >View all services</a
+      >
+    </section>
+
+    <!-- say hello -->
+    <section
+      class="say-hello md:h-[50vh] flex justify-end items-center p-3 xl:p-10 max-width"
+    >
+      <div class="xl:w-1/2">
+        <div class="bg-white xl:w-[55%] p-10">
+          <p class="text-2xl subheading">Say hello to a whole new you</p>
+          <p class="my-5">
+            Proin nec leo vel metus faucibus vehicula. Donec vulputate in magna
+            eget egestas. Aliquam ac facilisis ante, sit amet tincidunt ante.
+            Fusce dolor sapien.
+          </p>
+          <a href="#">
+            Discover more <i class="fas fa fa-thin fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- reviews -->
+    <section
+      class="flex items-center justify-center py-24 flex-col xl:flex-row max-width bg-yellow-50"
+    >
+      <div class="flex w-[80%] flex-col xl:flex-row">
+        <div class="card flex xl:mr-5 mb-4 flex-col">
+          <div class="mb-4 flex items-center">
+            <div class="w-[15%]">
+              <img
+                src="./images/content/member1.png"
+                alt="selena"
+                class="w-full"
+              />
+            </div>
+            <div class="ml-5">
+              <p>Selena</p>
+              <p>2021-01-10</p>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-2xl mb-3">Recommended</h4>
+            <p>
+              Great resort, professional staffs". It turns out that you're
+              searching for paradise and you have it hear, nearby. Thanks for
+              the warmth, you are fantastic.
+            </p>
+          </div>
+        </div>
+        <div class="card flex xl:mr-5 mb-4 flex-col">
+          <div class="mb-4 flex items-center">
+            <div class="w-[15%]">
+              <img
+                src="./images/content/member2.png"
+                alt="selena"
+                class="w-full"
+              />
+            </div>
+            <div class="ml-5">
+              <p>Selena</p>
+              <p>2021-01-10</p>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-2xl mb-3">Unique cuisine</h4>
+            <p>
+              We use the best ingredients to make special and really tasty
+              dishes. Choose what you want to eat every day. You order at the
+              moment.
+            </p>
+          </div>
+        </div>
+
+        <div class="card flex xl:mr-5 flex-col">
+          <div class="mb-4 flex items-center">
+            <div class="w-[15%]">
+              <img src="./images/content/member3.png" alt="selena" />
+            </div>
+            <div class="ml-5">
+              <p>Selena</p>
+              <p>2021-01-10</p>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-2xl mb-3">Perfect Location</h4>
+            <p>
+              The hotel is located near some of the most beautiful sandy
+              beaches. This is the hotel to book if you plan to spend a great
+              deal of time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- maps -->
+    <section
+      class="flex xl:w-[70%] items-center m-auto justify-center flex-col xl:flex-row p-5 py-16 max-width"
+    >
+      <div class="xl:w-1/2 xl:mr-10">
+        <p>GETTING HERE</p>
+        <h3 class="text-2xl">How to Get there?</h3>
+        <p class="mb-5">
+          Cras vel sapien erat. Proin molestie malesuada sem, nec euismod metus
+          luctus in. Aliquam eget nibh quis leo tempor congue. Integer accumsan
+          sollicitudin vehicula
+        </p>
+        <div class="flex my-2 items-start">
+          <div class="mr-5 text-2xl">
+            <i class="fa-solid fa-plane-up"></i>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold">By Plane</h4>
+            <p class="mt-2">
+              Donec ornare orci sit amet laoreet imperdiet. Sed lacus lorem,
+              pretium id efficitur eu, laoreet quis urna.
+            </p>
+          </div>
+        </div>
+        <div class="flex my-2 items-start">
+          <div class="mr-5 text-2xl">
+            <i class="fa-solid fa-bus"></i>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold">By Bus</h4>
+            <p class="mt-2">
+              Donec ornare orci sit amet laoreet imperdiet. Sed lacus lorem,
+              pretium id efficitur eu, laoreet quis urna.
+            </p>
+          </div>
+        </div>
+        <div class="flex my-2 items-start">
+          <div class="mr-5 text-2xl">
+            <i class="fa-solid fa-van-shuttle"></i>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold">By van</h4>
+            <p class="mt-2">
+              Donec ornare orci sit amet laoreet imperdiet. Sed lacus lorem,
+              pretium id efficitur eu, laoreet quis urna.
+            </p>
+          </div>
+        </div>
+        <a href="#" class="mt-8">
+          Discover more <i class="fas fa fa-thin fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="xl:w-1/2 w-full">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.043901925615!2d88.42922191494593!3d22.57746128518026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0275a5466e0099%3A0x563fb49fb6394261!2sItobuz%20Technologies%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1679901712851!5m2!1sen!2sin"
+          class="w-full"
+          height="450"
+        ></iframe>
+        <!-- <img src="./images/content/Map.png" alt="" class="w-full" /> -->
+      </div>
+    </section>
+
+    <!-- nature -->
+    <section class="flex bg-amber-100 flex-col xl:flex-row max-width mt-20">
+      <div class="xl:w-[80%] md:mt-[-66px] flex flex-col xl:flex-row p-5">
+        <div class="xl:w-1/2 mr-10 mb-10 xl:mb-0">
+          <img
+            src="./images/content//goutham-krishna-h5wvMCdOV3w-unsplash.jpg"
+            alt="nature"
+            class="w-[96%]"
+          />
+        </div>
+        <div class="xl:w-1/2 flex flex-col items-center justify-center">
+          <img
+            src="./images/content/dawid-zawila--G3rw6Y02D0-unsplash.jpg"
+            alt="nature"
+            class="w-full mb-10"
+          />
+          <img
+            src="./images/content/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg"
+            alt="nature"
+            class="w-full"
+          />
+        </div>
+      </div>
+      <div
+        class="xl:w-1/2 mb-10 xl:mb-0 flex flex-col items-center justify-center text-center px-10"
+      >
+        <p>SPA & WELLNESS</p>
+        <h3 class="text-2xl my-2">Side by Side with Nature</h3>
+        <p class="mb-10">
+          Find harmony and balance from the inside out and outside in. Laborum
+          accusantium libero commodi id officiis itaque esse adipisci,
+          necessitatibus asperiores, illo odio.
+        </p>
+        <button class="bg-[#0a205c] hover:bg-cyan-800 text-white p-2 px-6">
+          Join Us
+        </button>
+      </div>
+    </section>
+
+    <!-- subscribe -->
+    <section
+      class="flex flex-col items-center justify-center py-10 text-center px-2 max-width"
+    >
+      <p>Stories developed straight</p>
+      <h3 class="text-3xl my-2">Get news and update to your Inbox</h3>
+      <form
+        name="subscribeForm"
+        class="xl:border-2 xl:border-solid border-slate-200 p-2 my-5 xl:w-[40%] w-full flex justify-center flex-col xl:flex-row"
+      >
+        <input
+          type="text"
+          class="xl:w-[90%] w-full outline-0 xl:border-0 border-2 border-solid border-slate-200 mb-5 xl:mb-0"
+          placeholder="Enter your email address..."
+          required
+          name="email"
+        />
+        <button
+          class="bg-[#0a205c] hover:bg-cyan-800 text-white p-2 px-5 xl:w-[unset] w-[60%] m-auto subscribe-btn"
+        >
+          Subscribe
+        </button>
+      </form>
+      <p>
+        Will be used in accordance with our
+        <a href="#" class="underline">Privacy Policy</a>
+      </p>
+    </section>
+
+    <!-- footer  -->
+    <footer
+      class="w-full flex flex-col justify-center items-center p-5 blue-background text-slate-500 max-width"
+    >
+      <div
+        class="md:w-3/4 flex flex-col md:flex-row justify-between md:items-start items-center text-center"
+      >
+        <div
+          class="md:w-1/4 text-white flex flex-col justify-center md:justify-start text-center md:text-start"
+        >
+          <div class="logo flex md:items-start text-center flex-col">
+            <h2 class="text-5xl font-light">MIKALTO</h2>
+            <p class="md:ml-8">Hotels & Resorts</p>
+          </div>
+          <p class="my-5">
+            Proin nec leo vel metus faucibus vehicula. Donec vulputate in magna
+            eget egestas.
+          </p>
+          <div
+            class="flex mb-4 md:mb-0 items-center justify-center md:justify-start"
+          >
+            <p class="">Follow Us:</p>
+            <div class="md:ml-5 flex">
+              <a
+                href="#"
+                target="_blank"
+                class="hover:text-[#0a205c] hover:bg-white rounded-full"
+              >
+                <i class="p-2 fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                target="_blank"
+                class="hover:text-[#0a205c] hover:bg-white rounded-full"
+              >
+                <i class="p-2 fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="#"
+                target="_blank"
+                class="hover:text-[#0a205c] hover:bg-white rounded-full"
+              >
+                <i class="p-2 fa-brands fa-twitter"></i
+              ></a>
+              <a
+                href="#"
+                target="_blank"
+                class="hover:text-[#0a205c] hover:bg-white rounded-full"
+              >
+                <i class="p-2 fa-brands fa-youtube"></i
+              ></a>
+              <a
+                href="#"
+                target="_blank"
+                class="hover:text-[#0a205c] hover:bg-white rounded-full"
+              >
+                <i class="p-2 fa-brands fa-pinterest"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h5 class="mt-5 text-white mb-7 font-semibold">About</h5>
+          <ul>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">About Us</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Careers</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Contact Us</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Blog</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Gift Cards</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="mt-5 text-white mb-7 font-semibold">Services</h5>
+          <ul>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Spa</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Weddinng</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Dining</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Event</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Bar</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="mt-5 text-white mb-7 font-semibold">Quick Links</h5>
+          <ul>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Facilities</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Accomodation</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Reservation</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Why choose us</a>
+            </li>
+            <li class="mb-3 hover:text-white hover:underline">
+              <a href="#">Restaurant</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="mt-5 text-white font-semibold">Contact Us</h5>
+          <div class="my-10 flex flex-col">
+            <p>Total Free Customer Support</p>
+            <p class="text-white">(+123)123-233-456</p>
+          </div>
+          <div class="flex flex-col">
+            <p>Total Free Customer Support</p>
+            <p class="text-white">(+123)123-233-456</p>
+          </div>
+        </div>
+      </div>
+      <hr class="md:w-3/4 w-full my-5" />
+      <div class="md:w-3/4 flex flex-col md:flex-row text-white">
+        <p>Copyright © 2022 MIKALTO</p>
+        <ul
+          class="md:ml-10 flex flex-col md:flex-row items-center justify-center"
+        >
+          <li class="hover:underline">
+            <a href="#">Privacy</a>
+          </li>
+          <li class="md:mx-5 hover:underline">
+            <a href="#">Terms</a>
+          </li>
+          <li class="hover:underline">
+            <a href="#">Site map</a>
+          </li>
+        </ul>
+        <p class="md:ml-auto text-center cursor-pointer">
+          <i class="fas fa-light fa-globe"></i>
+          <select name="" id="" class="bg-transparent outline-0">
+            <option value="En">EN</option>
+            <option value="Hi">HI</option>
+          </select>
+        </p>
+      </div>
+    </footer>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "en", includedLanguages: "en,hi,hu,bn,de,es,fr" },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

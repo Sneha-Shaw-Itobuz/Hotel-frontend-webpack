@@ -1,0 +1,81 @@
+/* By Athlon Front-End Team */
+
+/* Core variables */
+@import 'base/vars';
+
+/* CSS Reset */
+@import 'base/reset';
+
+/* CSS print */
+@import 'base/print';
+
+/* Fonts */
+@import 'base/fonts';
+
+/* Mixins, helpers and functions */
+@import 'base/mixins';
+
+/* Vendor */
+
+/* Components */
+
+/* Browser specific styles */
+@import 'dirty/hacks';
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap");
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.goog-te-gadget {
+  font-size: 0px !important;
+}
+
+.goog-te-gadget span {
+  display: none !important;
+ 
+}
+
+.goog-te-gadget select {
+  display: inline !important;
+  outline: none;
+}
+
+.max-width {
+  max-width: 1920px;
+  margin: auto;
+}
+
+.banner {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.say-hello {
+  background: url(../images/design/aerial-photography.jpg) no-repeat center;
+}
+
+.blue-background {
+  background-color: #0a205c;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  background: white;
+  color: black;
+  box-shadow: 0 0 10px;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  padding: 20px;
+  font-size: 20px !important;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper {
+  margin-right: unset !important;
+}
