@@ -1,6 +1,5 @@
-import '../scss/app.scss';
+import "../scss/app.scss";
 /* Your JS Code goes here */
-
 
 const menuBar = document.querySelector(".menu");
 const list = document.querySelector(".list");
@@ -19,7 +18,6 @@ var swiper = new Swiper(".mySwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
-
 
 menuBar.addEventListener("click", () => {
   list.classList.toggle("hidden");
@@ -43,7 +41,7 @@ submitBtn.addEventListener("click", (e) => {
       }&noOfAdults=${form.adults.value}&noOfchildren=${form.children.value}`,
     }).then((res) => {
       console.log("Request complete! response:", res);
-      submitBtn.textContent = "✓";
+      submitBtn.textContent = "Submitted";
       form.checkin.value = "";
       form.checkout.value = "";
       form.adults.value = "";
@@ -59,7 +57,8 @@ submitBtn.addEventListener("click", (e) => {
 
 subscribeBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  let validRegex =/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  let validRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   if (
     subscribeForm.email.value.trim().length > 0 &&
     subscribeForm.email.value.match(validRegex)
@@ -177,3 +176,27 @@ function addCarousel(carouselData) {
       addCarousel(data);
     });
 })();
+
+(() => {
+  let today = new Date().toISOString().split("T")[0];
+  document.querySelectorAll("[type=date]").forEach((item) => {
+    item.setAttribute("min", today);
+  });
+})();
+
+document.querySelectorAll("[type=date]")[1].addEventListener("click", () => {
+  if (form.checkin.value.trim().length > 0) {
+    console.log(form.checkin.value);
+    document
+      .querySelectorAll("[type=date]")[1]
+      .setAttribute("min", form.checkin.value);
+  }
+});
+
+document.querySelectorAll("[type=date]")[0].addEventListener("click", () => {
+  if (form.checkout.value.trim().length > 0) {
+    document
+      .querySelectorAll("[type=date]")[0]
+      .setAttribute("max", form.checkout.value);
+  }
+});
